@@ -1,0 +1,23 @@
+name: Hello world
+description: This action will greet a person
+iputs:
+  name:
+    description: Name of the person
+    required: true
+    #default: Dummy
+outputs:
+  name_length:
+    description: Length of the provided name
+    value: ${{  }}
+    
+runs:
+  using: composite
+  steps:
+    - name: Echo input name
+      env:
+        NAME: ${{ inputs.name }}
+      run: |
+        echo "Hello $NAME!"
+    - name: Count length of the name
+      run: |
+        length=${#NAME}
